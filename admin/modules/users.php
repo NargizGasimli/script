@@ -102,17 +102,14 @@ if (isset($_SESSION['adm_logged_in'])) {
 		default:{
 			$result = db_query("SELECT * FROM `users`");
 			$users = mysqli_fetch_all($result, MYSQLI_ASSOC);
-			echo "<pre>";
-			print_r($users);
-			echo "</pre>";
-			die();
-			$result=db_query("SELECT * FROM `positions` WHERE id='$users['position_id']'");
-			// $result=db_query("SELECT
-			// 					  users.id AS users_id,
-			// 					  positions.name AS position_name,
-			// 					  positions.id AS position_id
-			// 					FROM users
-			// 					JOIN positions ON users.position_id=positions.id");
+			
+			//$result=db_query("SELECT * FROM `positions` WHERE id='$users['position_id']'");
+			$result=db_query("SELECT
+								  users.id AS users_id,
+								  positions.name AS position_name,
+								  positions.id AS position_id
+								FROM users
+								JOIN positions ON users.position_id=positions.id");
 			$positions = mysqli_fetch_all($result, MYSQLI_ASSOC);
 			
 
