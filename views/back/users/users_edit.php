@@ -251,7 +251,7 @@ include('views/back/common/header.php');
                                         <label for="fname"
                                             class="col-sm-3 text-end control-label col-form-label">First Name</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" name="name"  id="fname"
+                                            <input type="text" class="form-control" name="name" value="<?php echo htmlspecialchars($item['name'])?>"  id="fname"
                                                 placeholder="First Name Here">
                                         </div>
                                     </div>
@@ -259,14 +259,38 @@ include('views/back/common/header.php');
                                         <label for="lname" class="col-sm-3 text-end control-label col-form-label">Last
                                             Name</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" name="surname" id="lname"
+                                            <input type="text" class="form-control" name="surname" value="<?php echo htmlspecialchars($item['surname'])?>" id="lname"
                                                 placeholder="Last Name Here">
                                         </div>
                                     </div>
                                     <div class="form-group row">
+                                        <label for="lname"
+                                            class="col-sm-3 text-end control-label col-form-label">Age</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" value="<?php echo htmlspecialchars($item['age'])?>" name="age"id="lname"
+                                                placeholder="Age Here">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="email1"
+                                            class="col-sm-3 text-end control-label col-form-label">Email</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="email" value="<?php echo htmlspecialchars($item['email'])?>" class="form-control" id="email1"
+                                                placeholder="Email Here">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="cono1"
+                                            class="col-sm-3 text-end control-label col-form-label">Salary</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" value="<?php echo htmlspecialchars($item['salary'])?>" name="salary" id="cono1"
+                                                placeholder="Salary Here">
+                                        </div>
+                                    </div>
+                                     <div class="form-group row">
                                         <label for="lname" class="col-sm-3 text-end control-label col-form-label">Login</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" name="login" id="login"
+                                            <input type="text" class="form-control" value="<?php echo htmlspecialchars($item['login'])?>" name="salary" name="login" id="login"
                                                 placeholder="Login Here">
                                         </div>
                                     </div>
@@ -278,44 +302,13 @@ include('views/back/common/header.php');
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="lname"
-                                            class="col-sm-3 text-end control-label col-form-label">Age</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control"  name="age"id="lname"
-                                                placeholder="Age Here">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="email1"
-                                            class="col-sm-3 text-end control-label col-form-label">Email</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" name="email" class="form-control" id="email1"
-                                                placeholder="Email Here">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="cono1"
-                                            class="col-sm-3 text-end control-label col-form-label">Salary</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" name="salary" id="cono1"
-                                                placeholder="Salary Here">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
                                     <label class="col-md-3 mt-3">Position</label>
                                     <div class="col-md-3">
                                         <select name="position_id" required  class="select2 form-select shadow-none"
                                             style="width: 100%; height:36px;">
                                             <option>Select</option>
                                             <optgroup label="Positions">
-                                                <?php
-                                                foreach ($positions as $key=>$value) {
-                                                    echo '<option value='.$positions[$key]['position_id'].'>'.$positions['key']['position_name'].'</option>';
-
-                                                }
-                                                
-
-                                                ?>
+                                                <option value="1">Alaska</option>
                                             </optgroup>
                                         </select>
                                     </div>
@@ -324,7 +317,7 @@ include('views/back/common/header.php');
                                     <label class="col-md-3">Admin</label>
                                     <div class="col-md-9">
                                         <div class="form-check mr-sm-2">
-                                            <input type="checkbox" value="1" name="admin" class="form-check-input"
+                                            <input type="checkbox" value="1"   <?= ($item['admin'])?'checked':''  ?> name="admin" class="form-check-input"
                                                 id="customControlAutosizing1">
                                             
                                         </div>
@@ -334,7 +327,7 @@ include('views/back/common/header.php');
                                     <label class="col-md-3">Blocked</label>
                                     <div class="col-md-9">
                                         <div class="form-check mr-sm-2">
-                                            <input type="checkbox" value="1" name="blocked" class="form-check-input"
+                                            <input type="checkbox" value="1"  <?= ($item['blocked'])?'checked':''  ?> name="blocked" class="form-check-input"
                                                 id="customControlAutosizing2">
                                             
                                         </div>
@@ -344,7 +337,7 @@ include('views/back/common/header.php');
                                     <label class="col-md-3">Deleted</label>
                                     <div class="col-md-9">
                                         <div class="form-check mr-sm-2">
-                                            <input type="checkbox" value="1" name="deleted" class="form-check-input"
+                                            <input type="checkbox" value="1" <?= ($item['deleted'])?'checked':''  ?> name="deleted" class="form-check-input"
                                                 id="customControlAutosizing3">
                                             
                                         </div>
