@@ -9,7 +9,8 @@ define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_DATABASE', 'script');
 
-// define('MODE', 'DEBBUG');
+define('MODE', 'DEBBUG');
+define('ADMIN_SCRIPT', 'admin.php');
 // define('MODE', 'PRODUCTION');
 
 ?>
