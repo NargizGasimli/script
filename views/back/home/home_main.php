@@ -30,7 +30,6 @@ include('views/back/common/sidebar.php');
                 </div>
             </div>
         </div>
-    </div>
 <?php
 
 include('views/back/common/footer.php');

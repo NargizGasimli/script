@@ -81,7 +81,7 @@ include('views/back/common/sidebar.php');
                                                 <td>'.$user['blocked'].'</td>
                                                 <td>'.$user['deleted'].'</td>
                                                 <td><a href="'.ADMIN_SCRIPT.'?mod=users&act=edit&id='.$user['id'].'"><img width="50px" src="assets/images/edit.jpg"> </td>
-                                                <td><a href="'.ADMIN_SCRIPT.'?mod=users&act=delete&id='.$user['id'].'"><img width="40px" src="assets/images/delete.jpg"> </td>
+                                                <td><a href="'.ADMIN_SCRIPT.'?mod=users&act=delete&id='.$user['id'].'"><img width="40px" src="assets/images/delete.jpg"></td>
                                             </tr>
                                            ';
                                         }

@@ -7,6 +7,19 @@ if (isset($_SESSION['adm_logged_in'])) {
 
 	if (!isset($get['act']))$get['act'] = "default";
 	switch ($get['act']) {
+		case "delete":{
+            if(isset($get['id']) && is_numeric($get['id'])){
+                    $result = db_query("DELETE FROM `users` WHERE `id`='".(int)$get['id']."'");
+                    if($result){
+                        echo 'success';
+
+                    }
+                    else{
+                        echo 'fail';
+                    }
+            }
+            break;
+        }
 		case 'edit':{
 			$result= db_query("SELECT * FROM `users` WHERE `id`='".(int)$get['id']."'");
 			if (mysqli_num_rows($result)>0) {
@@ -112,7 +125,10 @@ if (isset($_SESSION['adm_logged_in'])) {
 								JOIN positions ON users.position_id=positions.id");
 			$positions = mysqli_fetch_all($result, MYSQLI_ASSOC);
 			
-
+			// echo "<pre>";
+			// print_r($positions);
+			// echo "</pre>";
+			// die();
 			include('views/back/users/users_main.php');
 			break;
 		}
