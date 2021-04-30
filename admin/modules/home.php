@@ -4,6 +4,11 @@ if (!defined('MYADMINSCRIPT')) {
 	exit();
 }
 if (isset($_SESSION['adm_logged_in'])) {
+	if (isset($get['logout']) && $get['logout']=='true') {
+		session_destroy();
+		header("Location:".ADMIN_SCRIPT);
+		exit();
+	}
 	include('views/back/home/home_main.php');
 }else{
 
