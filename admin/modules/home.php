@@ -13,7 +13,7 @@ if (isset($_SESSION['adm_logged_in'])) {
 }else{
 
 if (isset($post['login'],$post['password'])) {
-	$result=db_query("SELECT `id`,`password`,`name` FROM `users` WHERE `login`='".$post['login']."'");
+	$result=db_query("SELECT `id`,`password`,`name`,`admin` FROM `users` WHERE `login`='".$post['login']."' && `deleted`=0 && `blocked`=0");
 	$errors=[];
 	if (mysqli_num_rows($result)>0) {
 		$item=mysqli_fetch_assoc($result);
@@ -21,6 +21,7 @@ if (isset($post['login'],$post['password'])) {
 			$_SESSION['adm_logged_in']=true;
 			$_SESSION['adm_id']=$item['id'];
 			$_SESSION['adm_name']=$item['name'];
+			$_SESSION['is_adm'] = $item['admin'];
 			header("Location:". ADMIN_SCRIPT);
 			exit();
 

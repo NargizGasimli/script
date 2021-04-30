@@ -109,10 +109,11 @@ include('views/back/common/sidebar.php');
                                             <option>Select</option>
                                             <optgroup label="Positions">
                                                 <?php
-                                                foreach ($positions as $key=>$value) {
-                                                    echo '<option value='.$positions[$key]['position_id'].'>'.$positions[$key]['position_name'].'</option>';
-
-                                                }                                          
+                                                
+                                                   foreach ($positions as $position) {
+                                                       echo '<option value="'.$position['position_id'].'">'.$position['position_name'].'</option>';
+                                                   }
+                                                                                       
                                                 ?>
                                             </optgroup>
                                         </select>

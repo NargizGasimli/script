@@ -4,7 +4,7 @@ if (!defined('MYADMINSCRIPT')) {
     exit();
 }
 include('views/back/common/header.php');
-
+//print_r($item); exit;
 ?>
 <div id="main-wrapper">
 
@@ -108,7 +108,15 @@ include('views/back/common/sidebar.php');
                                             style="width: 100%; height:36px;">
                                             <option>Select</option>
                                             <optgroup label="Positions">
-                                                <option value="1">Alaska</option>
+                                                <?php foreach ($positions as $position): ?>
+
+                                                       <option value="<?= $position['position_id'] ?>" 
+                                                                selected="<?= $item['position_id'] == $position['id'] ? "selected" : "" ?>">
+                                                                <?= $position['position_name'] ?>
+                                                        </option>;
+                                                <?php endforeach; ?>
+                                                                                       
+                                                ?>
                                             </optgroup>
                                         </select>
                                     </div>
