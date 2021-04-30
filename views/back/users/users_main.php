@@ -48,7 +48,11 @@ include('views/back/common/sidebar.php');
                             <div class="table-responsive">
 
                                 <table id="zero_config" class="table table-striped table-bordered">
-                                    <?php echo'<a href="'.ADMIN_SCRIPT.'?mod=users&act=add" style="float: right;" type="button" class="btn btn-success btn-lg text-white">Add User></a>'?>
+                                    <?php if($_SESSION['is_adm']) {
+                                        echo'<a href="'.ADMIN_SCRIPT.'?mod=users&act=add" style="float: right;" type="button" class="btn btn-success btn-lg text-white">Add User></a>';
+                                    }
+                                    
+                                    ?>
                                     <thead>
                                         <tr>
                                             <th>id</th>
